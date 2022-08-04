@@ -6,6 +6,8 @@ import com.hotList.entities.Book;
 import com.hotList.entities.Bookmark;
 import com.hotList.entities.WebLink;
 import com.hotList.entities.Movie;
+import com.hotList.entities.User;
+import com.hotList.entities.UserBookmark;
 
 public class BookmarkManager {
 	private static BookmarkManager instance = new BookmarkManager();
@@ -59,6 +61,14 @@ public class BookmarkManager {
 	
 	public Bookmark[][] getBookmarks(){
 		return dao.getBookmarks();
+	}
+
+	public void saveUserBookmark(User user, Bookmark bookmark) {
+		UserBookmark userBookmark = new UserBookmark();
+		userBookmark.setUser(user);
+		userBookmark.setBookmark(bookmark);
+		
+		dao.saveUserBookmark(userBookmark);
 	}
 
 }
