@@ -2,9 +2,12 @@ package com.hotList.entities;
 
 import java.util.Arrays;
 
-import com.hotList.constants.BookGenre;
+import org.apache.commons.lang3.StringUtils;
 
-public class Book extends Bookmark {
+import com.hotList.constants.BookGenre;
+import com.hotList.partner.Shareable;
+
+public class Book extends Bookmark implements Shareable {
 	private int publicationYear;
 	private String publisher;
 	private String[] authors;
@@ -65,6 +68,22 @@ public class Book extends Bookmark {
 		}
 		
 		return true;
+	}
+
+	@Override
+	public String getItemData() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("<item>");
+			builder.append("<type>Book</type>");
+			builder.append("<title>").append(getTitle()).append("</title>");
+			builder.append("<authors>").append(StringUtils.join(authors,",")).append("</authors>");
+			builder.append("<publisher>").append(publisher).append("</publisher>");
+			builder.append("<publicationYear>").append(publicationYear).append("</publicationYear>");
+			builder.append("<genre>").append(genre).append("</genre>");
+			builder.append("<amazonRating>").append(amazonRating).append("</amazonRating>");
+		builder.append("</item>");
+		
+		return builder.toString();
 	}
 
 }

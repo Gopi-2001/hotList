@@ -5,6 +5,7 @@ import com.hotList.constants.UserType;
 import com.hotList.controllers.BookmarkController;
 import com.hotList.entities.Bookmark;
 import com.hotList.entities.User;
+import com.hotList.partner.Shareable;
 
 public class view {
 	public static void browse(User user, Bookmark[][] bookmarks) {
@@ -25,23 +26,37 @@ public class view {
 						System.out.println("New Item Bookmarked -- " + bookmark);
 					}
 
-					// Mark as Kid - Friendly
+					
 					if (user.getUserType().equals(UserType.EDITOR)
 							|| user.getUserType().equals(UserType.CHIEF_EDITOR)) {
+						
+						// Mark as Kid - Friendly
 						if (bookmark.isKidFriendlyEligible()
 								|| bookmark.getIsKidFriendlyStatus().equals(KidsFriendlyStatus.UNKNOWN)) {
 							String KidFriendlyStatus = getKidsFriendlyStatusDecision(bookmark);
 							
 							if(!KidFriendlyStatus.equals(KidsFriendlyStatus.UNKNOWN)) {
-								bookmark.setIsKidFriendlyStatus(KidFriendlyStatus);
+								BookmarkController.getInstance().setKidFriendlyStatus(user,KidFriendlyStatus,bookmark);
 								
-								System.out.println("Kid-Friendly Status : " + KidFriendlyStatus + ", " + bookmark);
+							}
+						}
+						
+						//Sharing		
+						if(bookmark.getIsKidFriendlyStatus().equals(KidsFriendlyStatus.APPROVED) && bookmark instanceof Shareable) {
+							boolean isShared = getShareDecision();
+							
+							if(isShared) {
+								BookmarkController.getInstance().share(user,bookmark);
 							}
 						}
 					}
 				}
 			}
 		}
+	}
+
+	private static boolean getShareDecision() {
+		return Math.random() < 0.5 ? true : false;	
 	}
 
 	private static String getKidsFriendlyStatusDecision(Bookmark bookmark) {
