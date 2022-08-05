@@ -1,10 +1,15 @@
 package com.hotList.entities;
 
-public class Bookmark {
+import com.hotList.constants.KidsFriendlyStatus;
+
+public abstract class Bookmark {
 	private long id;
 	private String title;
 	private String profileUrl;
-
+    private String isKidFriendlyStatus = KidsFriendlyStatus.UNKNOWN;
+	
+	public abstract boolean isKidFriendlyEligible();
+	
 	public long getId() {
 		return id;
 	}
@@ -27,5 +32,13 @@ public class Bookmark {
 
 	public void setProfileUrl(String profileUrl) {
 		this.profileUrl = profileUrl;
+	}
+
+	public String getIsKidFriendlyStatus() {
+		return isKidFriendlyStatus;
+	}
+
+	public void setIsKidFriendlyStatus(String isKidFriendlyStatus) {
+		this.isKidFriendlyStatus = isKidFriendlyStatus;
 	}
 }
