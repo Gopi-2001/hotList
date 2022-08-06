@@ -8,6 +8,9 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.util.*;
 
+import com.hotList.constants.BookGenre;
+import com.hotList.constants.KidsFriendlyStatus;
+import com.hotList.constants.MovieGenre;
 import com.hotList.dao.BookmarkDao;
 import com.hotList.entities.Book;
 import com.hotList.entities.Bookmark;
@@ -37,7 +40,7 @@ public class BookmarkManager {
 		return weblink;
 	}
 
-	public Book createBook(long id, String title, int publicationYear, String publisher, String[] authors, String genre,
+	public Book createBook(long id, String title, int publicationYear, String publisher, String[] authors, BookGenre genre,
 			double amazonRating) {
 		Book book = new Book();
 		book.setId(id);
@@ -52,7 +55,7 @@ public class BookmarkManager {
 	}
 
 	public Movie createMovie(long id, String title, String profileUrl, int releaseYear, String[] cast,
-			String[] directors, String genre, double imdbRating) {
+			String[] directors, MovieGenre genre, double imdbRating) {
 		Movie movie = new Movie();
 		movie.setId(id);
 		movie.setTitle(title);
@@ -94,7 +97,7 @@ public class BookmarkManager {
 		dao.saveUserBookmark(userBookmark);
 	}
 
-	public void setKidFriendlyStatus(User user, String kidFriendlyStatus, Bookmark bookmark) {
+	public void setKidFriendlyStatus(User user, KidsFriendlyStatus kidFriendlyStatus, Bookmark bookmark) {
 		 bookmark.setIsKidFriendlyStatus(kidFriendlyStatus);
 		 bookmark.setKidFriendlyMarkedBy(user);
 		 

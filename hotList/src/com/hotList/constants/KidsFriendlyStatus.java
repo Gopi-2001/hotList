@@ -1,10 +1,15 @@
 package com.hotList.constants;
 
-public class KidsFriendlyStatus {
-	private KidsFriendlyStatus() {
+public enum KidsFriendlyStatus {
+	APPROVED("approved"), REJECTED("rejected"), UNKNOWN("unknow");
+
+	private KidsFriendlyStatus(String name) {
+		this.name = name;
 	}
 
-	public static final String APPROVED = "approved";
-	public static final String REJECTED = "rejected";
-	public static final String UNKNOWN = "unknow";
+	private String name;
+
+	public String getName() {
+		return name;
+	}
 }

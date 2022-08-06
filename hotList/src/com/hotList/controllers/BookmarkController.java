@@ -1,5 +1,6 @@
 package com.hotList.controllers;
 
+import com.hotList.constants.KidsFriendlyStatus;
 import com.hotList.entities.Bookmark;
 import com.hotList.entities.User;
 import com.hotList.manager.BookmarkManager;
@@ -17,7 +18,7 @@ public class BookmarkController {
 		
 	}
 
-	public void setKidFriendlyStatus(User user, String KidFriendlyStatus, Bookmark bookmark) {
+	public void setKidFriendlyStatus(User user, KidsFriendlyStatus KidFriendlyStatus, Bookmark bookmark) {
 		BookmarkManager.getInstance().setKidFriendlyStatus(user,KidFriendlyStatus,bookmark);
 		
 	}
