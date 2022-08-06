@@ -1,13 +1,15 @@
 package com.hotList;
 
+import java.util.*;
+
 import com.hotList.entities.Bookmark;
 import com.hotList.entities.User;
 import com.hotList.manager.BookmarkManager;
 import com.hotList.manager.UserManager;
 
 public class Launch {
-	private static User[] users;
-	private static Bookmark[][] bookmarks;
+	private static List<User> users;
+	private static List<List<Bookmark>> bookmarks;
 
 	private static void loadData() {
 		System.out.println("1. Loading Data ....");
@@ -19,7 +21,7 @@ public class Launch {
 
 	private static void printBookmarkData() {
 
-		for (Bookmark[] bookmarkList : bookmarks) {
+		for (List<Bookmark> bookmarkList : bookmarks) {
 			for (Bookmark bookmark : bookmarkList) {
 				System.out.println(bookmark);
 			}

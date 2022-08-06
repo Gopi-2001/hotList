@@ -6,7 +6,7 @@ import com.hotList.DataStore;
 import com.hotList.entities.User;
 
 public class UserDao {
-	public User[] getUsers() {
+	public List<User> getUsers() {
 		return DataStore.getUsers();
 	}
 }

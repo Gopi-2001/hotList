@@ -1,5 +1,7 @@
 package com.hotList;
 
+import java.util.*;
+
 import com.hotList.constants.KidsFriendlyStatus;
 import com.hotList.constants.UserType;
 import com.hotList.controllers.BookmarkController;
@@ -8,18 +10,15 @@ import com.hotList.entities.User;
 import com.hotList.partner.Shareable;
 
 public class view {
-	public static void browse(User user, Bookmark[][] bookmarks) {
+	public static void browse(User user, List<List<Bookmark>> bookmarks) {
 
 		System.out.println("\n" + user.getEmail() + " is Browsing item ....");
-		int bookmarkCount = 0;
 
-		for (Bookmark[] bookmarkList : bookmarks) {
+		for (List<Bookmark> bookmarkList : bookmarks) {
 			for (Bookmark bookmark : bookmarkList) {
-				// Bookmarking !!
-				if (bookmarkCount < DataStore.USER_BOOKMARK_LIMIT) {
+				// Bookmarking !!				
 					boolean isBookmarked = getBookmarkDecision(bookmark);
 					if (isBookmarked) {
-						bookmarkCount++;
 
 						BookmarkController.getInstance().saveUserBookmark(user, bookmark);
 
@@ -53,7 +52,6 @@ public class view {
 				}
 			}
 		}
-	}
 
 	private static boolean getShareDecision() {
 		return Math.random() < 0.5 ? true : false;	

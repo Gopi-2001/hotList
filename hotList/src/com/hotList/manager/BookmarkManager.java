@@ -6,6 +6,7 @@ import com.hotList.util.IOUtil;
 
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.util.*;
 
 import com.hotList.dao.BookmarkDao;
 import com.hotList.entities.Book;
@@ -65,7 +66,7 @@ public class BookmarkManager {
 		return movie;
 	}
 	
-	public Bookmark[][] getBookmarks(){
+	public List<List<Bookmark>> getBookmarks(){
 		return dao.getBookmarks();
 	}
 
@@ -84,10 +85,8 @@ public class BookmarkManager {
 					}
 				}				
 			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (URISyntaxException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

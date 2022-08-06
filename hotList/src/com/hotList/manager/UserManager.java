@@ -1,5 +1,7 @@
 package com.hotList.manager;
 
+import java.util.*;
+
 import com.hotList.dao.UserDao;
 import com.hotList.entities.User;
 
@@ -29,7 +31,7 @@ public class UserManager {
 
 	}
 	
-	public User[] getUsers() {
+	public List<User> getUsers() {
 		return dao.getUsers();
 	}
 }
