@@ -33,7 +33,7 @@ public class DataStore {
 	public static void add(UserBookmark userBookmark) {
        userBookmarks.add(userBookmark);
 	}
-
+	
 	public static void loadData() {
 		loadUsers();
 		loadWebLinks();

@@ -2,6 +2,7 @@ package com.hotList;
 
 import java.util.*;
 
+import com.hotList.bgjobs.WebpageDownloaderTask;
 import com.hotList.entities.Bookmark;
 import com.hotList.entities.User;
 import com.hotList.manager.BookmarkManager;
@@ -46,6 +47,14 @@ public class Launch {
 	public static void main(String[] args) {
 		loadData();
         start();
+        
+        runDownLoaderJob();
+	}
+
+	private static void runDownLoaderJob() {
+		WebpageDownloaderTask task = new WebpageDownloaderTask(true);
+		
+		(new Thread(task)).start();
 	}
 
 	
