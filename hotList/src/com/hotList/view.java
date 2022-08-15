@@ -31,7 +31,7 @@ public class view {
 						
 						// Mark as Kid - Friendly
 						if (bookmark.isKidFriendlyEligible()
-								|| bookmark.getIsKidFriendlyStatus().equals(KidsFriendlyStatus.UNKNOWN)) {
+								&& bookmark.getIsKidFriendlyStatus().equals(KidsFriendlyStatus.UNKNOWN)) {
 							KidsFriendlyStatus KidFriendlyStatus = getKidsFriendlyStatusDecision(bookmark);
 							
 							if(!KidFriendlyStatus.equals(KidsFriendlyStatus.UNKNOWN)) {

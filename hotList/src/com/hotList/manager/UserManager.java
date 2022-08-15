@@ -3,6 +3,7 @@ package com.hotList.manager;
 import java.util.*;
 
 import com.hotList.constants.Gender;
+import com.hotList.constants.UserType;
 import com.hotList.dao.UserDao;
 import com.hotList.entities.User;
 
@@ -18,7 +19,7 @@ public class UserManager {
 	}
 
 	public User createUser(long id, String email, String password, String firstName, String lastName, Gender gender,
-			String userType) {
+			UserType userType) {
 		User user = new User();
 		user.setId(id);
 		user.setEmail(email);

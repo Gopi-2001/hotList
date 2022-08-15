@@ -48,7 +48,7 @@ public class Launch {
 		loadData();
         start();
         
-        runDownLoaderJob();
+      //  runDownLoaderJob();
 	}
 
 	private static void runDownLoaderJob() {

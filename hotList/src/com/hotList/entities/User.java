@@ -1,6 +1,7 @@
 package com.hotList.entities;
 
 import com.hotList.constants.Gender;
+import com.hotList.constants.UserType;
 
 public class User {
 	private long id;
@@ -9,7 +10,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private Gender gender;
-	private String userType;
+	private UserType userType;
 
 	public long getId() {
 		return id;
@@ -59,12 +60,12 @@ public class User {
 		this.gender = gender2;
 	}
 
-	public String getUserType() {
+	public UserType getUserType() {
 		return userType;
 	}
 
-	public void setUserType(String userType) {
-		this.userType = userType;
+	public void setUserType(UserType userType2) {
+		this.userType = userType2;
 	}
 
 	@Override
