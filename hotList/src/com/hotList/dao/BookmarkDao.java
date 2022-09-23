@@ -19,7 +19,7 @@ public class BookmarkDao {
 	}
 
 	public void saveUserBookmark(UserBookmark userBookmark) {
-		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jid_thrillio?useSSL=false", "root", "root");
+		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotlist?useSSL=false", "root", "root");
 				Statement stmt = conn.createStatement();) {
 			if(userBookmark.getBookmark() instanceof Book) {
 				saveUserBook(userBookmark,stmt);

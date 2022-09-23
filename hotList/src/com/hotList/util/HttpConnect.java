@@ -12,6 +12,7 @@ public class HttpConnect {
 	
 	public static String download(String sourceUrl) throws MalformedURLException, URISyntaxException {
 		System.out.println("Downloading: " + sourceUrl);
+		sourceUrl.replaceAll(" ","%20");
 		URL url = new URI(sourceUrl).toURL();		
 		
 		try {
